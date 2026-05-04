@@ -1,0 +1,16 @@
+Quick explanation:
+
+This version uses IoT-23 labeled network traffic instead of random sample data. The raw Zeek
+connection log is preprocessed into numeric features such as duration, original bytes,
+response bytes, original packets, response packets, total bytes, total packets, and
+bytes per packet. The labels are converted into binary classes where benign traffic is 0 and
+malicious traffic is 1.
+
+The training script trains both a Decision Tree and a Random Forest model. We compare the
+models using accuracy, precision, recall, F1 score, and a confusion matrix. The Random Forest
+model is selected for prediction because it combines multiple decision trees and usually
+generalizes better than one individual tree.
+
+The prediction script loads the trained model and classifies traffic records. Malicious
+predictions are written to alerts.jsonl, all classified records are saved in CSV format, and
+the dashboard.html file provides a simple visual interface for reviewing detection results.
