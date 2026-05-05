@@ -1,0 +1,75 @@
+IoT-23 ML Detection Framework - Demo Instructions
+
+This guide provides step-by-step commands to demonstrate preprocessing, model training, and prediction using the sample dataset included in the GitHub repository.
+
+NOTE:
+The full IoT-23 dataset (conn.log.labeled) is not included due to size constraints.
+Instead, a preprocessed sample dataset is provided for demonstration purposes.
+
+----------------------------------------
+1. Install Dependencies
+----------------------------------------
+Run this first:
+
+pip install -r requirements.txt
+
+----------------------------------------
+2. Demonstrate Data Preparation (Preprocessing)
+----------------------------------------
+Since the full raw dataset is not included, we use the sample CSV.
+
+Run:
+
+python -c "import pandas as pd; df=pd.read_csv('data/sample/sample_iot23_dataset.csv'); print('Sample IoT-23 dataset loaded successfully'); print('Rows:', len(df)); print('Columns:', list(df.columns)); print(df.head())"
+
+Explanation:
+This confirms that the dataset loads correctly and shows its structure.
+
+----------------------------------------
+3. Train the Model
+----------------------------------------
+Create processed data directory (if not exists):
+
+mkdir data\processed
+
+Copy sample dataset into processed location:
+
+copy data\sample\sample_iot23_dataset.csv data\processed\iot23_processed.csv
+
+Run training:
+
+python src/train_models.py
+
+This will generate:
+- models/selected_model.joblib
+- outputs/model_analysis.txt
+
+----------------------------------------
+4. Run Detection System
+----------------------------------------
+Run the main detection pipeline:
+
+python src/main.py --input data/sample/sample_iot23_dataset.csv
+
+----------------------------------------
+5. View Outputs
+----------------------------------------
+After execution, check:
+
+outputs/classified_results.csv   -> Full predictions
+outputs/alerts.jsonl             -> Malicious traffic alerts
+outputs/summary.txt              -> Summary report
+outputs/dashboard.html           -> Visual dashboard
+outputs/model_analysis.txt       -> Model performance metrics
+
+----------------------------------------
+6. Demo Explanation (What to Say)
+----------------------------------------
+- The sample dataset is a subset of IoT-23 due to GitHub size limits.
+- In a full deployment, preprocessing would convert raw Zeek logs into structured CSV format.
+- The model is trained using this dataset and used to classify new traffic.
+- Outputs include structured logs and a dashboard for analysis.
+
+----------------------------------------
+End of Instructions
+----------------------------------------
