@@ -38,7 +38,7 @@ copy data\sample\sample_iot23_dataset.csv data\processed\iot23_processed.csv
 
 Run training:
 
-python src/train_models.py
+python src/train_models_fixed.py
 
 This will generate:
 - models/selected_model.joblib
