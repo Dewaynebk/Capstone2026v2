@@ -1,0 +1,54 @@
+{
+  "selected_model": "random_forest",
+  "features": [
+    "duration",
+    "orig_bytes",
+    "resp_bytes",
+    "orig_pkts",
+    "resp_pkts",
+    "total_bytes",
+    "total_pkts",
+    "bytes_per_packet"
+  ],
+  "training_rows": 3581028,
+  "label_distribution": {
+    "benign": 2476,
+    "malicious": 3578552
+  },
+  "results": {
+    "decision_tree": {
+      "accuracy": 0.9994202781994445,
+      "precision": 0.9994202134374194,
+      "recall": 1.0,
+      "f1_score": 0.999710022656226,
+      "confusion_matrix": [
+        [
+          100,
+          519
+        ],
+        [
+          0,
+          894638
+        ]
+      ],
+      "classification_report_text": "              precision    recall  f1-score   support\n\n      benign       1.00      0.16      0.28       619\n   malicious       1.00      1.00      1.00    894638\n\n    accuracy                           1.00    895257\n   macro avg       1.00      0.58      0.64    895257\nweighted avg       1.00      1.00      1.00    895257\n"
+    },
+    "random_forest": {
+      "accuracy": 0.9994202781994445,
+      "precision": 0.9994213292669984,
+      "recall": 0.9999988822294604,
+      "f1_score": 0.9997100223321915,
+      "confusion_matrix": [
+        [
+          101,
+          518
+        ],
+        [
+          1,
+          894637
+        ]
+      ],
+      "classification_report_text": "              precision    recall  f1-score   support\n\n      benign       0.99      0.16      0.28       619\n   malicious       1.00      1.00      1.00    894638\n\n    accuracy                           1.00    895257\n   macro avg       0.99      0.58      0.64    895257\nweighted avg       1.00      1.00      1.00    895257\n"
+    }
+  }
+}
